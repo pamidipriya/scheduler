@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetCompanyNotificationsService {
+  // Mock API
   private url =
     'https://my-json-server.typicode.com/pamidipriya/demo/notifications';
   constructor(private httpClient: HttpClient) {}

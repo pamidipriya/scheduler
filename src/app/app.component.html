@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <br />
     <div class="notification-container" *ngFor="let schedule of companyData">
-      <h3>{{ schedule.companyName }} {{totalNumberOfDays}}</h3>
+      <h3 id="heading">{{ schedule.companyName }}</h3>
       <div
         class="notification"
         [ngClass]="isCompleted(notification,last)"
@@ -14,7 +14,8 @@
       >
         <div class="icon-holder"></div>
         <p *ngIf="first">Introduction</p>
-        <p *ngIf="!first">Notification</p>
+        <p *ngIf="!first && !last">Notification</p>
+        <p *ngIf="last">End</p>
         <p>{{ notification }}</p>
         <span class="difference" [ngClass]="{first:first}">
           {{ calculateDiff(notification, schedule.companyId)}} day(s)
@@ -23,18 +24,4 @@
       <br /><br />
     </div>
   </div>
-
-  <!-- <div *ngFor="let schedule of schedules">
-    {{schedule.companyName}}
-    <br/>
-    <div>
-      <div *ngFor="let notification of schedule.notifications">
-      {{notification}} ({{isCompleted(notification)}})
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div *ngFor="let product of products">
-    {{product.price}}
-  </div> -->
 
